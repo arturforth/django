@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
 # import models
 from .models import Prueba
 
@@ -18,3 +18,8 @@ class ListarPrueba(ListView):
     template_name = 'home/lista_prueba.html'
     model = Prueba
     context_object_name = 'lista'
+
+class PruebaCreateView(CreateView):
+    template_name = 'home/add.html'
+    model = Prueba  # Tabla de la base de datos
+    fields = ['titulo', 'subtitulo', 'cantidad']
