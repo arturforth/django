@@ -9,7 +9,11 @@ class EmpleadoAdmin(admin.ModelAdmin):
         'first_name',
         'last_name',
         'departamento',
-        'jobs',
+        'job',
     )
+
+    search_fields = ('first_name',) # Campo de busqueda. En base a que se realiza la busqueda. En este caso nombre.
+    list_filter = ('job', 'habilidades')
+    filter_horizontal = ('habilidades',)
 
 admin.site.register(Empleado, EmpleadoAdmin)
